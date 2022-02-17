@@ -1,7 +1,10 @@
+/* body background color */
+body{
+    background-color: rgb(193, 238, 238);
+}
+
+/* image size */
 .monthly-sevings{
     width: 550px;
     height: 720px;
-}
-body{
-    background-color: rgb(193, 238, 238);
 }
