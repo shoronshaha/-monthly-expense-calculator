@@ -1,4 +1,4 @@
-// common functions (get,set) with error handling
+//functions with error handling
 let flag = false;
 function getValue(inputId, err1, err2) {
     let input = document.getElementById(inputId);
@@ -9,13 +9,13 @@ function getValue(inputId, err1, err2) {
         errMsg1.style.display = 'block';
         errMsg2.style.display = 'none';
         flag = true;
-        return 'invalid input (an integer value is required)...!!!!';
+        return 'invalid input...!!, please give an integer number';
     }
     else if (number < 0) {
         errMsg1.style.display = 'none';
         errMsg2.style.display = 'block';
         flag = true;
-        return 'invalid input (a positive number is required)...!!!!';
+        return 'invalid input...!!, please give a positive number';
     }
     errMsg1.style.display = 'none';
     errMsg2.style.display = 'none';
@@ -25,7 +25,7 @@ function setValue(num, setId) {
     let setfield = document.getElementById(setId);
     setfield.innerText = num;
 }
-//balance and expense calculation
+//calculation of balance and expense
 function calculate() {
     flag = false;
     let income = getValue('income', 'incomeErr1', 'incomeErr2');
@@ -62,7 +62,7 @@ function savingsCalc() {
         alert("You don't have that much money for savings...!!!!");
         return;
     }
-    let lastBalance = balance - totalSavings;
+    let remainBalance = balance - totalSavings;
     setValue(totalSavings, 'totalSaving');
-    setValue(lastBalance, 'lastBalance');
+    setValue(remainBalance, 'remainBalance');
 }
