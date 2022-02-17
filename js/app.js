@@ -57,12 +57,12 @@ function savingsCalc() {
         return 'Warning: invalid input...!!!!'
     }
     let balance = document.getElementById('balance').innerText;
-    let totalSavings = (income * save) / 100;
-    if (balance < totalSavings) {
-        alert("You don't have that much money for savings...!!!!");
+    let savingAmount = (income * save) / 100;
+    if (balance < savingAmount) {
+        alert("You don't have that much money..please check it again");
         return;
     }
-    let remainBalance = balance - totalSavings;
-    setValue(totalSavings, 'totalSaving');
+    let remainBalance = balance - savingAmount;
+    setValue(savingAmount, 'savingAmount');
     setValue(remainBalance, 'remainBalance');
 }
