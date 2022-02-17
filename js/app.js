@@ -45,7 +45,7 @@ function calculate() {
     let expense = food + rent + clothes;
 
     if (income < expense) {
-        alert('Expense is exceeding the income by ' + (expense - income) + 'taka...!!!!');
+        alert('Expense is out of range the income by ' + (expense - income) + 'taka...!!!!');
         return;
     }
 
