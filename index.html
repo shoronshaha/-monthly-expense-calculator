@@ -30,15 +30,15 @@
         </div>
     </header>
 
-    <!-- main part -->
+    <!--start main part -->
     <main>
         <div class="container">
             <div class="row my-5">
                 <div class="col-sm-12 col-md-6 gx-3">
                     <img class="monthly-sevings image-fluid" src="images/image/monthly-sevings.gif" alt="">
                 </div>
-
-                <div class="col-sm-12 col-md-6 text-center gx-3">
+                <div class="col-sm-12 col-md-6 gx-3">
+                    <!--section1 start income part -->
                     <section class="col-12">
                         <div class="text-center py-3">
                             <h3>Income</h3>
@@ -46,10 +46,13 @@
                                 <label class="fs-5" for="">
                                     Income:
                                 </label>
-                                <input type="text" placeholder="Give your montly income">
+                                <input id="income" type="text" placeholder="Give your montly income">
                             </div>
                         </div>
                     </section>
+                    <!--section1 end income part -->
+
+                    <!-- section2 start expense part -->
                     <section class="col-12">
                         <div class="text-center py-4">
                             <div>
@@ -59,50 +62,55 @@
                                 <label class="fs-5 py-3 ms-3" for="">
                                     Food :
                                 </label>
-                                <input type="text" placeholder="Give your montly food">
+                                <input id="food" type="text" placeholder="Montly Food Expense">
                             </div>
                             <div>
                                 <label class="fs-5 py-3 ms-4" for="">
                                     Rent :
                                 </label>
-                                <input type="text" placeholder="Give your montly rent">
+                                <input id="rent" type="text" placeholder="Montly Rent Expense">
                             </div>
                             <div>
                                 <label class="fs-5 py-3" for="">
-                                    clothes :
+                                    Clothes :
                                 </label>
-                                <input type="text" placeholder="Give your montly clothes">
+                                <input id="clothes" type="text" placeholder="Montly Clothe Expense">
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary btn-lg my-4">Calculate</button>
+                                <button id="calculate-btn" type="button"
+                                    class="btn btn-primary btn-lg my-4">Calculate</button>
                             </div>
                             <div>
-                                <h4>Total Expenses : <span>0000</span></h4>
-                                <h4>Balance : <span>0000</span></h4>
+                                <h4>Total Expenses : <span id="total-expens">0000</span></h4>
+                                <h4>Balance : <span id="total-balance">0000</span></h4>
                             </div>
                         </div>
                     </section>
+                    <!-- section2 end expense part -->
+
+                    <!-- section3 start savings part -->
                     <section class="col-12">
                         <div class="text-center ">
                             <div>
-                                <label class="fs-5" for="">save :</label>
-                                <input size="12px" style="height: 37px" type="text" placeholder="parsent">
+                                <label class="fs-5" for="">Save :</label>
+                                <input id="saving-parcent" size="12px" style="height: 37px" type="text"
+                                    placeholder="parsent">
                                 %
-                                <button style="width: 160px; height: 40px;" type="button"
+                                <button id="save-btn" style="width: 160px; height: 40px;" type="button"
                                     class="btn btn-primary my-2 mx-2">Save</button>
                             </div>
                             <div class="my-4">
-                                <h4>Saving Amount : <span>0000</span></h4>
-                                <h4>Remaining Balance : <span>0000</span></h4>
+                                <h4>Saving Amount : <span id="saving-amount">0000</span></h4>
+                                <h4>Remaining Balance : <span id="remain-balance">0000</span></h4>
                             </div>
                         </div>
-
                     </section>
+                    <!-- section3 end savings part -->
                 </div>
             </div>
         </div>
     </main>
-
+    <!-- end main part -->
 
 
 
