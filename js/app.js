@@ -1,41 +1,68 @@
-document.getElementById('calculate-btn').addEventListener('click', function () {
-    const incomeAmount = document.getElementById('income');
-    const incomeText = incomeAmount.value;
-    const income = parseFloat(incomeText);
+// common functions (get,set) with error handling
+let flag = false;
+function getValue(inputId, err1, err2) {
+    let input = document.getElementById(inputId);
+    let number = parseFloat(input.value);
+    let errMsg1 = document.getElementById(err1);
+    let errMsg2 = document.getElementById(err2);
+    if (Number.isInteger(number) == false) {
+        errMsg1.style.display = 'block';
+        errMsg2.style.display = 'none';
+        flag = true;
+        return 'invalid input (an integer value is required)...!!!!';
+    }
+    else if (number < 0) {
+        errMsg1.style.display = 'none';
+        errMsg2.style.display = 'block';
+        flag = true;
+        return 'invalid input (a positive number is required)...!!!!';
+    }
+    errMsg1.style.display = 'none';
+    errMsg2.style.display = 'none';
+    return number;
+}
+function setValue(num, setId) {
+    let setfield = document.getElementById(setId);
+    setfield.innerText = num;
+}
+//balance and expense calculation
+function calculate() {
+    flag = false;
+    let income = getValue('income', 'incomeErr1', 'incomeErr2');
+    let food = getValue('food', 'foodErr1', 'foodErr2');
+    let rent = getValue('rent', 'rentErr1', 'rentErr2');
+    let clothes = getValue('clothes', 'clothesErr1', 'clothesErr2');
 
-    const foodAmount = document.getElementById('food');
-    const foodText = foodAmount.value;
-    const foodExpens = parseFloat(foodText);
+    if (flag == true) {
+        return 'Warning: invalid input...!!!!'
+    }
 
-    const rentAmount = document.getElementById('rent');
-    const rentText = rentAmount.value;
-    const rentExpens = parseFloat(rentText);
+    let expense = food + rent + clothes;
 
-    const clothesAmount = document.getElementById('clothes');
-    const clothesText = clothesAmount.value;
-    const clothesExpens = parseFloat(clothesText);
+    if (income < expense) {
+        alert('Expense is exceeding the income by ' + (expense - income) + 'taka...!!!!');
+        return;
+    }
 
-    const expenseAmount = document.getElementById('total-expens');
-    const totalExpenses = parseFloat(expenseAmount.innerText);
-    expenseAmount.innerText = foodExpens + rentExpens + clothesExpens;
-
-
-    const totalAmount = document.getElementById('total-balance');
-    const totalBalance = parseFloat(totalAmount.innerText);
-    totalAmount.innerText = income - parseFloat(expenseAmount.innerText);
-
-});
-
-document.getElementById('save-btn').addEventListener('click', function () {
-    const saveParsentInput = document.getElementById('saving-parcent');
-    const saveParsentText = saveParsentInput.value;
-    const saveParsent = parseFloat(saveParsentText);
-
-    const savingAmountText = document.getElementById('saving-amount');
-    // const savingAmount = parseFloat(savingAmountText.innerText);
-    // savingAmountText.innerText = parseFloat(income) / saveParsent;
-    const saveingParsent = income / saveParsent;
-    console.log(saveingParsent);
-
-})
-
+    let balance = income - expense;
+    setValue(expense, 'expense');
+    setValue(balance, 'balance');
+}
+//savings and remaining balance calculation
+function savingsCalc() {
+    flag = false;
+    let save = getValue('save', 'saveErr1', 'saveErr2');
+    let income = getValue('income', 'incomeErr1', 'incomeErr2');
+    if (flag == true) {
+        return 'Warning: invalid input...!!!!'
+    }
+    let balance = document.getElementById('balance').innerText;
+    let totalSavings = (income * save) / 100;
+    if (balance < totalSavings) {
+        alert("You don't have that much money for savings...!!!!");
+        return;
+    }
+    let lastBalance = balance - totalSavings;
+    setValue(totalSavings, 'totalSaving');
+    setValue(lastBalance, 'lastBalance');
+}

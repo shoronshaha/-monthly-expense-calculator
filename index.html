@@ -48,6 +48,10 @@
                                 </label>
                                 <input id="income" type="text" placeholder="Give your montly income">
                             </div>
+                            <p id="incomeErr1" class="hidden" style="display: none;">invalid input (an integer value is
+                                required)...!!!!</p>
+                            <p id="incomeErr2" class="hidden" style="display: none;">invalid input (a positive number is
+                                required)...!!!!</p>
                         </div>
                     </section>
                     <!--section1 end income part -->
@@ -64,25 +68,41 @@
                                 </label>
                                 <input id="food" type="text" placeholder="Montly Food Expense">
                             </div>
+                            <p id="foodErr1" class="hidden" style="display: none;">invalid input (an integer value is
+                                required)...!!!!</p>
+                            <p id="foodErr2" class="hidden" style="display: none;">invalid input (a positive number is
+                                required)...!!!!</p>
                             <div>
                                 <label class="fs-5 py-3 ms-4" for="">
                                     Rent :
                                 </label>
                                 <input id="rent" type="text" placeholder="Montly Rent Expense">
                             </div>
+                            <p id="rentErr1" class="hidden" style="display: none;">invalid
+                                input (an integer value is
+                                required)...!!!!</p>
+                            <p id="rentErr2" class=" hidden" style="display: none;">invalid
+                                input (a positive number is
+                                required)...!!!!</p>
                             <div>
                                 <label class="fs-5 py-3" for="">
                                     Clothes :
                                 </label>
                                 <input id="clothes" type="text" placeholder="Montly Clothe Expense">
                             </div>
+                            <p id="clothesErr1" class="hidden" style="display: none;">invalid input (an integer value
+                                is
+                                required)...!!!!</p>
+                            <p id="clothesErr2" class="hidden" style="display: none;">invalid input (a positive number
+                                is
+                                required)...!!!!</p>
                             <div>
-                                <button id="calculate-btn" type="button"
+                                <button onclick="calculate()" type="button"
                                     class="btn btn-primary btn-lg my-4">Calculate</button>
                             </div>
                             <div>
-                                <h4>Total Expenses : <span id="total-expens">0000</span></h4>
-                                <h4>Balance : <span id="total-balance">0000</span></h4>
+                                <h4>Total Expenses : <span id="expense">0000</span></h4>
+                                <h4>Balance : <span id="balance">0000</span></h4>
                             </div>
                         </div>
                     </section>
@@ -93,15 +113,19 @@
                         <div class="text-center ">
                             <div>
                                 <label class="fs-5" for="">Save :</label>
-                                <input id="saving-parcent" size="12px" style="height: 37px" type="text"
-                                    placeholder="parsent">
+                                <input id="save" size="12px" style="height: 37px" type="text" placeholder="parsent">
                                 %
-                                <button id="save-btn" style="width: 160px; height: 40px;" type="button"
+                                <button onclick="savingsCalc()" style="width: 160px; height: 40px;" type="button"
                                     class="btn btn-primary my-2 mx-2">Save</button>
                             </div>
+                            <p id="saveErr1" class="hidden" style="display: none;">invalid input (an integer value is
+                                required)...!!!!</p>
+                            <p id="saveErr2" class="hidden" style="display: none;">invalid
+                                input (a positive number is
+                                required)...!!!!</p>
                             <div class="my-4">
-                                <h4>Saving Amount : <span id="saving-amount">0000</span></h4>
-                                <h4>Remaining Balance : <span id="remain-balance">0000</span></h4>
+                                <h4>Saving Amount : <span id="totalSaving">0000</span></h4>
+                                <h4>Remaining Balance : <span id="lastBalance">0000</span></h4>
                             </div>
                         </div>
                     </section>
